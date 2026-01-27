@@ -4,6 +4,10 @@
 
 This is an MCSR practice tool, designed generally for use with MPK (https://github.com/Knawk/mc-MiniPracticeKit). MPK is a wonderful tool for practicing zeroes which many people use, but people generally use it with totally random seeds. This tool lets you customise which zeroes you do or don't get! 
 
+## If the jar gives an error when running it
+
+Make sure you have java 17 or later installed!
+
 ## How it works
 
 This isn't a mod, just a simple jar file that you run in the background (like Jingle or Ninjabrainbot). Download it from the "releases" tab on the right. You use the menus to customise your settings (see below), then the tool automatically copies Minecraft world seeds to your clipboard, giving you a new one each time it detects you've created a new world. So all you need to do is when creating a new creative world to use MPK, just hit "More World Options" and Ctrl+V into the seed bar. The tool will supply you a new seed which matches your settings every time.
