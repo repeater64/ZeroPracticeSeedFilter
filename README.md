@@ -23,3 +23,61 @@ Full details about all the settings can be seen by hovering the info icons in th
 ## Issues / questions / feedback
 
 If you have any problems, questions, or feedback (or even just found the tool useful and wanted to let me know) feel free to message me on discord, my username is **repeater64**. This is the first time I've made a tool for the community and I'm hoping it will be useful to people, I'll certainly be using it!
+
+## Autohotkey script for fast MPK resetting
+
+For myself, I made an autohotkey script that triggers when I press ctrl+K and automatically does the following actions:
+ - Quit the current world I'm in, if I'm in one (works from the You Died screen and normal gameplay)
+ - Click singleplayer, create new world
+ - Double click gamemode to set to creative
+ - Switch to more world options, paste in seed from clipboard (provided by the ZeroPracticeSeedFilter tool)
+ - Click create world
+
+It does all that in like a second which is pretty useful and satisfying. So I'm sharing the section of the autohotkey script here. If you already use/know how to use autohotkey (or are willing to look into setting it up) then feel free to use this snippet:
+
+```
+^k::  ; Ctrl + K hotkey. Change the k to something else if you want, or change the ^ if you wanna use a modifier other than Ctrl (look up the autohotkey documentation)
+{
+    ; Handles exiting from a world, works from death screen or normal gameplay (also works from the ranked queuing screen because it clicks the queue in background button for you!! Very nice for practicing quickly whilst in queue)
+    Send "{Tab}"
+    Sleep 20
+    Send "{Space}"
+    Sleep 800
+    Send "{Esc}"
+    Sleep 20
+    Click 2450, 1400 ; Clicks the "Quit to title" button in the bottom right to skip the saving screen
+
+    ; If you often find that when using the shortcut whilst in a world, you get stuck at the main menu screen and have to press the shortcut again, try increasing this time (300 = 0.3 seconds)
+    Sleep 300
+
+    ; click singleplayer
+    Send "{Tab}"
+    Sleep 20
+    Send "{Space}"
+    Sleep 20
+
+    ; Click create new world
+    Click 1518, 1295
+    Sleep 20
+    ; Double click gamemode button
+    Click 1055, 330
+    Sleep 20
+    Click 1055, 330
+    Sleep 20
+
+    ; Click more world options and paste seed
+    Click 1355, 570
+    Sleep 20
+    Click 1355, 230
+    Sleep 20
+    Send("{Ctrl down}")
+    Send("v")
+    Send("{Ctrl up}")
+    Sleep 20
+
+    ; Click create button
+    Click 1055, 1369
+}
+```
+
+Note that it uses a bunch of screen coordinates to click on. This works for me on a 2560x1440 monitor with GUI scale 3. If you have a different monitor size and/or GUI scale you'll need to change the numbers - I'd recommend using Windows+PrintScreen to take a screenshot of the world creation screen, then pasting this screenshot into an image editor that lets you see pixel coordinates so you can work out the coords of the buttons and change it in the code. You'll also need to change the coords of the "Quit to title" button in the bottom right, but the coords for this will just be the resolution of your screen minus a little bit.
