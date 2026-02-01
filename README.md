@@ -37,7 +37,50 @@ For myself, I made an autohotkey script that triggers when I press ctrl+K and au
  - Switch to more world options, paste in seed from clipboard (provided by the ZeroPracticeSeedFilter tool)
  - Click create world
 
-It does all that in like a second which is pretty useful and satisfying. So I'm sharing the section of the autohotkey script here. If you already use/know how to use autohotkey (or are willing to look into setting it up) then feel free to use this snippet:
+It does all that in like a second which is pretty useful and satisfying. So I'm sharing the section of the autohotkey script here. If you already use/know how to use autohotkey (or are willing to look into setting it up) then feel free to use this snippet for ahk v1:
+
+```
+^k::  ; Ctrl + K hotkey
+    ; Handles exiting from a world
+    Send, {Tab}
+    Sleep, 20
+    Send, {Space}
+    Sleep, 800
+    Send, {Esc}
+    Sleep, 20
+    Click, 2450, 1400 
+
+    Sleep, 300
+
+    ; click singleplayer
+    Send, {Tab}
+    Sleep, 20
+    Send, {Space}
+    Sleep, 20
+
+    ; Click create new world
+    Click, 1518, 1295
+    Sleep, 20
+    ; Double click gamemode button
+    Click, 1055, 330
+    Sleep, 20
+    Click, 1055, 330
+    Sleep, 20
+
+    ; Click more world options and paste seed
+    Click, 1355, 570
+    Sleep, 20
+    Click, 1355, 230
+    Sleep, 20
+    Send, ^v  ;
+    Sleep, 20
+
+    ; Click create button
+    Click, 1055, 1369
+return
+```
+
+Or the same for ahk v2:
 
 ```
 ^k::  ; Ctrl + K hotkey. Change the k to something else if you want, or change the ^ if you wanna use a modifier other than Ctrl (look up the autohotkey documentation)
