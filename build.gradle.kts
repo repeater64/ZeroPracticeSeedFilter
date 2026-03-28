@@ -3,6 +3,7 @@ plugins {
     application
     id("com.github.johnrengelman.shadow") version "8.1.1"
     `maven-publish`
+    kotlin("plugin.serialization") version "2.3.20"
 }
 
 group = "me.repeater64"
@@ -29,6 +30,8 @@ dependencies {
 
     // Source: https://mvnrepository.com/artifact/com.sun.jna/platform
     implementation("net.java.dev.jna:jna-platform:5.13.0")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0")
 }
 
 kotlin {
