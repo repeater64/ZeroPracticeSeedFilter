@@ -1,8 +1,5 @@
 package pillars
 
-import kotlinx.serialization.Serializable
-
-@Serializable
 data class SeedPillarInfo(
     val frontDragon: Boolean,
     val pillar: Pillar

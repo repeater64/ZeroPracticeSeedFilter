@@ -1,8 +1,6 @@
 package spawn
 
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class SeedSpawnInfo(
     val type: SpawnType,
     val oLevel: Int = -1,
